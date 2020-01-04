@@ -1,0 +1,13 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+img {
+  margin: 4px;
+  border: 1px solid white;
+}
+
+.favorite {
+  border: 1px solid red;
+}
