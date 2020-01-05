@@ -8,12 +8,14 @@ export const StateContext = React.createContext();
 export default function(props) {
   const [state, setState] = React.useState({ images: imageData });
 
-  function favorite(ix) {
+  const favorite = React.useCallback(ix => {
     console.log(`favoriting ${ix}`);
-    const newState = deepMerge({}, state);
-    newState.images[ix].favorite = !newState.images[ix].favorite;
-    setState(newState);
-  }
+    setState(state => {
+      const newState = deepMerge({}, state);
+      newState.images[ix].favorite = !newState.images[ix].favorite;
+      return newState;
+    });
+  });
 
   const context = {
     images: state.images,

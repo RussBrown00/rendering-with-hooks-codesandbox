@@ -41,8 +41,8 @@ function Gallery() {
   return (
     <div className="gallery">
       <Hello />
-      {images.map(image => (
-        <Image {...image} />
+      {images.map((image, ix) => (
+        <Image key={image.id} index={ix} {...image} />
       ))}
     </div>
   );
